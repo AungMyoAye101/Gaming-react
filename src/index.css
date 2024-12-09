@@ -31,3 +31,9 @@ body {
     src: url("/fonts/zentry-regular.woff2") format("woff2");
   }
 }
+
+@layer utilities {
+  .container {
+    @apply min-h-screen w-screen relative overflow-x-hidden;
+  }
+}
