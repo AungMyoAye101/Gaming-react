@@ -5,7 +5,7 @@ import { TiLocationArrow } from "react-icons/ti";
 const Hero = () => {
   const [currIndex, setCurrIndex] = useState(1);
   const [loadedVideo, setLoadedVideo] = useState(0);
-  const totalVideos = 4;
+  const totalVideos = 3;
 
   const handleclick = () => {
     setCurrIndex((pre) => (pre % totalVideos) + 1);
@@ -46,7 +46,7 @@ const Hero = () => {
           loop
           muted
           autoPlay
-          src={getVideosSource(currIndex)}
+          src={getVideosSource(currIndex === totalVideos - 1 ? 1 : currIndex)}
           onLoadedData={handleVideoLoad}
           className="absolute-center absolute top-0 left-0 object-cover object-center size-full"
         />
