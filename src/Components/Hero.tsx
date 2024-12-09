@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Hero = () => {
   const [currIndex, setCurrIndex] = useState(1);
   const [loadedVideo, setLoadedVideo] = useState(0);
+  const [hasclicked, sethasclicked] = useState(false);
+
+  const nextVideoRef = useRef(null);
   const totalVideos = 3;
 
   const handleclick = () => {
+    sethasclicked(true);
     setCurrIndex((pre) => (pre % totalVideos) + 1);
   };
   const handleVideoLoad = () => {
@@ -15,16 +21,51 @@ const Hero = () => {
   };
   const getVideosSource = (index: number) => `/videos/hero-${index}.mp4`;
 
+  // use gsap animation
+
+  useGSAP(
+    () => {
+      if (hasclicked) {
+        gsap.set("#next-video", {
+          visibility: "visible",
+        });
+      }
+      gsap.to("#next-video", {
+        transformOrigin: "center center",
+        scale: 1,
+        width: "100%",
+        height: "100%",
+        duration: 1,
+        ease: "power1.inOut",
+        onStart: () =>
+          nextVideoRef.current ? nextVideoRef.current.play() : null,
+      });
+
+      gsap.from("#current-video", {
+        transformOrigin: "center center",
+        scale: 0,
+        duration: 1.5,
+        ease: "power1.inOut",
+      });
+    },
+    {
+      dependencies: [currIndex],
+      revertOnUpdate: true,
+    }
+  );
+
   return (
     <section className="hero-container">
       <div id="video-frame" className="hero-container">
         <div className="mask-clip-path  absolute-center z-20 rounded-lg overflow-hidden cursor-pointer">
           <div
-            className=" rounded-lg z-10 bg-blue-50 origin-center scale-50  transition-all opacity-0 hover:scale-100 hover:opacity-100 duration-500 ease-out cursor-pointer"
+            className=" rounded-lg bg-blue-50 origin-center scale-50  transition-all opacity-0 hover:scale-100 hover:opacity-100 duration-500 ease-out cursor-pointer"
             onClick={handleclick}
           >
             <div>
               <video
+                ref={nextVideoRef}
+                id="current-video"
                 loop
                 muted
                 src={getVideosSource((currIndex % totalVideos) + 1)}
@@ -35,12 +76,14 @@ const Hero = () => {
           </div>
         </div>
         <video
+          ref={nextVideoRef}
+          id="next-video"
           loop
           muted
           autoPlay
           src={getVideosSource(currIndex)}
           onLoadedData={handleVideoLoad}
-          className="absolute-center invisible size-64 z-20 object-cover object-center  "
+          className="absolute-center invisible size-64 z-30 object-cover object-center  "
         />
         <video
           loop
@@ -52,7 +95,7 @@ const Hero = () => {
         />
       </div>
       {/* Text section */}
-      <div className="absolute top-0 left-0 size-full">
+      <div className="absolute top-0 left-0 size-full z-30">
         <div className="mt-24 px-4 sm:px-10 ">
           <h1 className="special-font heading text-blue-100">
             Redefi<b>n</b>e
