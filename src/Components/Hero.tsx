@@ -74,7 +74,7 @@ const Hero = () => {
                 muted
                 src={getVideosSource((currIndex % totalVideos) + 1)}
                 onLoadedData={handleVideoLoad}
-                className="size-64 rounded-lg origin-center object-cover object-center scale-150 "
+                className=" size-56 md:size-64 rounded-lg origin-center object-cover object-center scale-100 md:scale-150 "
               />
             </div>
           </div>
@@ -87,7 +87,7 @@ const Hero = () => {
           autoPlay
           src={getVideosSource(currIndex)}
           onLoadedData={handleVideoLoad}
-          className="absolute-center invisible size-64 z-10 object-cover object-center  "
+          className="absolute-center invisible  size-56 md:size-64 z-10 object-cover object-center  "
         />
         <video
           loop
@@ -99,7 +99,7 @@ const Hero = () => {
         />
       </div>
       {/* Text section */}
-      <div className="absolute top-0 left-0 size-full z-30">
+      <div className="absolute top-0 left-0 z-40">
         <div className="mt-24 px-4 sm:px-10 ">
           <h1 className="special-font heading text-blue-100">
             Redefi<b>n</b>e

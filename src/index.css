@@ -49,6 +49,6 @@ body {
     font-feature-settings: "ss01" on;
   }
   .heading {
-    @apply font-zentry uppercase text-5xl font-black;
+    @apply font-zentry uppercase text-5xl sm:text-7xl md:text-9xl font-black;
   }
 }
