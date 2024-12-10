@@ -9,7 +9,7 @@ const Hero = () => {
   const [loadedVideo, setLoadedVideo] = useState(0);
   const [hasclicked, sethasclicked] = useState(false);
 
-  const nextVideoRef = useRef(null);
+  const nextVideoRef = useRef<HTMLVideoElement>(null);
   const totalVideos = 3;
 
   const handleclick = () => {
@@ -29,24 +29,28 @@ const Hero = () => {
         gsap.set("#next-video", {
           visibility: "visible",
         });
-      }
-      gsap.to("#next-video", {
-        transformOrigin: "center center",
-        scale: 1,
-        width: "100%",
-        height: "100%",
-        duration: 1,
-        ease: "power1.inOut",
-        onStart: () =>
-          nextVideoRef.current ? nextVideoRef.current.play() : null,
-      });
 
-      gsap.from("#current-video", {
-        transformOrigin: "center center",
-        scale: 0,
-        duration: 1.5,
-        ease: "power1.inOut",
-      });
+        gsap.to("#next-video", {
+          transformOrigin: "center center",
+          scale: 1,
+          width: "100%",
+          height: "100%",
+          duration: 1,
+          ease: "power1.inOut",
+          onStart: () => {
+            if (nextVideoRef.current) {
+              nextVideoRef.current.play();
+            }
+          },
+        });
+
+        gsap.from("#current-video", {
+          transformOrigin: "center center",
+          scale: 0,
+          duration: 1.5,
+          ease: "power1.inOut",
+        });
+      }
     },
     {
       dependencies: [currIndex],
@@ -57,9 +61,9 @@ const Hero = () => {
   return (
     <section className="hero-container">
       <div id="video-frame" className="hero-container">
-        <div className="mask-clip-path  absolute-center z-20 rounded-lg overflow-hidden cursor-pointer">
+        <div className="mask-clip-path  absolute-center z-40 rounded-lg overflow-hidden cursor-pointer">
           <div
-            className=" rounded-lg bg-blue-50 origin-center scale-50  transition-all opacity-0 hover:scale-100 hover:opacity-100 duration-500 ease-out cursor-pointer"
+            className=" rounded-lg  origin-center scale-30  transition-all opacity-0 hover:scale-100 hover:opacity-100 duration-500 ease-out cursor-pointer"
             onClick={handleclick}
           >
             <div>
@@ -83,7 +87,7 @@ const Hero = () => {
           autoPlay
           src={getVideosSource(currIndex)}
           onLoadedData={handleVideoLoad}
-          className="absolute-center invisible size-64 z-30 object-cover object-center  "
+          className="absolute-center invisible size-64 z-10 object-cover object-center  "
         />
         <video
           loop
@@ -91,7 +95,7 @@ const Hero = () => {
           autoPlay
           src={getVideosSource(currIndex === totalVideos - 1 ? 1 : currIndex)}
           onLoadedData={handleVideoLoad}
-          className="absolute-center absolute top-0 left-0 object-cover object-center size-full"
+          className="absolute-center z-0 absolute top-0 left-0 object-cover object-center size-full"
         />
       </div>
       {/* Text section */}
