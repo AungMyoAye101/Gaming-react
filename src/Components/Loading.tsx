@@ -1,9 +1,16 @@
 const Loading = () => {
   return (
-    <div className="absolute-center z-20 flex bg-blue-50">
-      <div className="size-2 rounded-full bg-violet-300"></div>
-      <div className="size-2 rounded-full bg-violet-300"></div>
-      <div className="size-2 rounded-full bg-violet-300"></div>
+    /* From Uiverse.io by JkHuger */
+    <div className="h-screen w-screen absolute-center bg-violet-50 z-40">
+      <div className="square" id="sq1"></div>
+      <div className="square" id="sq2"></div>
+      <div className="square" id="sq3"></div>
+      <div className="square" id="sq4"></div>
+      <div className="square" id="sq5"></div>
+      <div className="square" id="sq6"></div>
+      <div className="square" id="sq7"></div>
+      <div className="square" id="sq8"></div>
+      <div className="square" id="sq9"></div>
     </div>
   );
 };

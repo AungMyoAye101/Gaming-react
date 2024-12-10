@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const [currIndex, setCurrIndex] = useState(1);
   const [loadedVideo, setLoadedVideo] = useState(0);
-  const [hasclicked, sethasclicked] = useState(false);
+  const [hasclicked, sethasclicked] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const nextVideoRef = useRef<HTMLVideoElement>(null);
@@ -26,7 +26,9 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    setLoading(true);
+    if (loadedVideo === totalVideos - 1) {
+      setLoading(false);
+    }
   }, [loadedVideo]);
 
   const getVideosSource = (index: number) => `/videos/hero-${index}.mp4`;
@@ -89,7 +91,7 @@ const Hero = () => {
 
   return (
     <section className="hero-container">
-      {/* {loading && <Loading />} */}
+      {loading && <Loading />}
 
       <main id="video-frame" className="hero-container">
         <div>
