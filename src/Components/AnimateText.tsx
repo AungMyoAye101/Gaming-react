@@ -1,4 +1,3 @@
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 
@@ -37,21 +36,16 @@ const AnimateText = ({
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className={`flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem] ${containerClass}`}
-    >
-      {title.split("<br/>").map((line, i) => {
-        <div key={i} className="flex gap-1 items-center w-full ">
-          {line.split(" ").map((w, index) => {
-            <span
-              key={index}
-              className="animate-word"
-              dangerouslySetInnerHTML={{ __html: w }}
-            />;
-          })}
-        </div>;
-      })}
+    <div>
+      {title.split("<br />").map((l, i) => (
+        <div key={i} className="flex items-center gap-1">
+          {l.split(" ").map((w, idx) => (
+            <span key={idx} className="about-text">
+              {w}
+            </span>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };
