@@ -26,16 +26,13 @@ const About = () => {
     <section className="min-h-screen w-screen relative " id="about">
       <div className="flex flex-col gap-4 items-center    py-6 relative">
         <h2 className="text-sm uppercase font-general">Welcome to Zentry</h2>
-        {/* <h1 className="font-zentry uppercase text-4xl md:text-6xl text-center spiceal-font leading-[0.8]">
-          Disc<b>o</b>ver the <br />
-          world's <br /> largest shared <b>a</b>dventure
-        </h1> */}
+
         <AnimateText
-          title="Disc<b>o</b>ver the world's <br /> largest shared <b>a</b>dventure"
-          containerClass="text-black"
+          title="<> Disc<b>o</b>ver the world's <br /> largest shared <b>a</b>dventure </>"
+          containerClass="text-black text-center"
         />
 
-        <div className="absolute bottom-[-80dvh] text-center font-circular-web font-semibold md:text-xl  left-1/2 -translate-x-1/2">
+        <div className="absolute bottom-[-80dvh] text-center text-sm max-w-md font-circular-web font-semibold   left-1/2 -translate-x-1/2">
           <p>The Game of Games begins—your life, now an epic MMORPG</p>
           <p className="text-gray-500">
             Zentry unites every player from countless games and platforms, both

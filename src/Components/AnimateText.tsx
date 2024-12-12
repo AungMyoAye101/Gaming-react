@@ -8,7 +8,7 @@ const AnimateText = ({
   title,
   containerClass,
 }: {
-  title: any;
+  title: string;
   containerClass?: string;
 }) => {
   const containerRef = useRef(null);
@@ -35,10 +35,7 @@ const AnimateText = ({
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className={`animated-title !text-black text-center`}
-    >
+    <div ref={containerRef} className={`animated-title !${containerClass}`}>
       {title.split("<br />").map((l, i) => (
         <div
           key={i}
