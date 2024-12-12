@@ -35,7 +35,7 @@ const AnimateText = ({
   }, []);
 
   return (
-    <div ref={containerRef} className={`animated-title !${containerClass}`}>
+    <div ref={containerRef} className={`animated-title ${containerClass}`}>
       {title.split("<br />").map((l, i) => (
         <div
           key={i}
