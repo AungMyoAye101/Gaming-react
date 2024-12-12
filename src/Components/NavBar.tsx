@@ -1,13 +1,45 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
-
+import { useWindowScroll } from "react-use";
+import gsap from "gsap";
 const navLink = ["home", "about", "contact", "nexus"];
 
 const NavBar = () => {
   const [isPlay, setIsPlay] = useState(false);
-  const navRef = useRef(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [isNavVisible, setIsNavVisible] = useState(false);
+
+  const navRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  const { y: currScrollY } = useWindowScroll();
+
+  useEffect(() => {
+    if (navRef.current) {
+      if (currScrollY === 0) {
+        setIsNavVisible(true);
+        navRef.current.classList.remove(".floating-nav");
+      } else if (currScrollY > scrollY) {
+        setIsNavVisible(false);
+        navRef.current.classList.add(".floating-nav");
+      } else if (currScrollY < scrollY) {
+        setIsNavVisible(true);
+        navRef.current.classList.add(".floating-nav");
+      }
+    }
+
+    setScrollY(currScrollY);
+  }, [currScrollY]);
+
+  // gsap Animation to nav bar
+  useEffect(() => {
+    gsap.to(navRef, {
+      y: isNavVisible ? 0 : -100,
+      opacity: isNavVisible ? 1 : 0,
+      duration: 0.2,
+    });
+  }, [isNavVisible]);
 
   const audioIndicator = () => {
     setIsPlay((pre) => !pre);
@@ -25,10 +57,10 @@ const NavBar = () => {
   return (
     <div
       ref={navRef}
-      className="fixed inset-x-0 sm:inset-x-6 z-[100] h-16 bg-green-100 top-4 rounded-lg border-none transition-all duration-700"
+      className="fixed inset-x-0 sm:inset-x-6 z-[100] h-16 top-4 rounded-lg border-none transition-all duration-700"
     >
       <header className="absolute top-1/2 -translate-y-1/2 w-full">
-        <nav className="flex justify-between items-center size-full p-4 bg-violet-600">
+        <nav className="flex justify-between items-center size-full p-4">
           <div className="flex items-center gap-2 ">
             <img src="/img/logo.png" alt="logo" className="w-10" />
             <Button
