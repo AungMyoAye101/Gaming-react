@@ -8,7 +8,7 @@ const navLink = ["home", "about", "contact", "nexus"];
 const NavBar = () => {
   const [isPlay, setIsPlay] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [isNavVisible, setIsNavVisible] = useState(false);
+  const [isNavVisible, setIsNavVisible] = useState(true);
 
   const navRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -19,22 +19,22 @@ const NavBar = () => {
     if (navRef.current) {
       if (currScrollY === 0) {
         setIsNavVisible(true);
-        navRef.current.classList.remove(".floating-nav");
+        navRef.current.classList.remove("floating-nav");
       } else if (currScrollY > scrollY) {
         setIsNavVisible(false);
-        navRef.current.classList.add(".floating-nav");
+        navRef.current.classList.add("floating-nav");
       } else if (currScrollY < scrollY) {
         setIsNavVisible(true);
-        navRef.current.classList.add(".floating-nav");
+        navRef.current.classList.add("floating-nav");
       }
     }
 
     setScrollY(currScrollY);
-  }, [currScrollY]);
+  }, [scrollY, currScrollY]);
 
   // gsap Animation to nav bar
   useEffect(() => {
-    gsap.to(navRef, {
+    gsap.to(navRef.current, {
       y: isNavVisible ? 0 : -100,
       opacity: isNavVisible ? 1 : 0,
       duration: 0.2,
