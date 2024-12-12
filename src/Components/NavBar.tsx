@@ -1,11 +1,27 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
 
 const navLink = ["home", "about", "contact", "nexus"];
 
 const NavBar = () => {
+  const [isPlay, setIsPlay] = useState(false);
   const navRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const audioIndicator = () => {
+    setIsPlay((pre) => !pre);
+  };
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlay) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlay]);
+
   return (
     <div
       ref={navRef}
@@ -33,7 +49,24 @@ const NavBar = () => {
                 </a>
               ))}
             </div>
-            <button className="ml-10">button</button>
+            <button
+              onClick={audioIndicator}
+              className="ml-10 flex items-center gap-1"
+            >
+              <audio
+                ref={audioRef}
+                src="/audio/loop.mp3"
+                className="hidden"
+                loop
+              />
+              {[1, 2, 3, 4].map((bar) => (
+                <div
+                  key={bar}
+                  className={`indicator-line ${isPlay ? "active" : ""}`}
+                  style={{ animationDelay: `${bar * 0.1}s` }}
+                />
+              ))}
+            </button>
           </div>
         </nav>
       </header>
