@@ -31,7 +31,7 @@ const About = () => {
           world's <br /> largest shared <b>a</b>dventure
         </h1> */}
         <AnimateText
-          title="Disc<b>o</b>ver the <br />world's <br /> largest shared <b>a</b>dventure"
+          title="Disc<b>o</b>ver the world's <br /> largest shared <b>a</b>dventure"
           containerClass="text-black"
         />
 
