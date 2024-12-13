@@ -19,7 +19,7 @@ const BentoCard: FC<BentoCardProps> = ({ src, title, desc }) => {
       <div className="relative z-10 flex flex-col justify-between size-full text-blue-50 p-5">
         <div>
           <h1 className="special-font bento-title">{title}</h1>
-          <p>{desc}</p>
+          <p className="max-w-64 text-xs md:text-base mt-3">{desc}</p>
         </div>
       </div>
     </div>
