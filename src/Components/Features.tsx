@@ -12,10 +12,17 @@ const Features = () => {
             experience on your world.
           </p>
         </div>
-
-        <div>
-          <BentoCard src="videos/feature-1.mp4" />
-        </div>
+      </div>
+      <div className="w-full h-96 overflow-hidden rounded-lg md:h-[65vh] relative border border-gray-100 mb-7">
+        <BentoCard
+          src="/videos/feature-1.mp4"
+          title={
+            <>
+              radie<b>n</b>t
+            </>
+          }
+          desc="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
+        />
       </div>
     </section>
   );
