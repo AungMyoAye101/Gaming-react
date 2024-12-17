@@ -1,10 +1,10 @@
-import { TiLocationArrow } from "react-icons/ti";
 import BentoCard from "./BentoCard";
+import BentoGrid from "./BentoGrid";
 
 const Features = () => {
   return (
     <section className="pb-32 bg-black">
-      <div className="px-3 md:px-10 container">
+      <div className="px-4 md:px-10 mx-auto container">
         <div className="py-32 px-5 font-circular-web text-blue-50">
           <p className="text-lg "> Into the Metagame Layer</p>
           <p className="text-lg max-w-md opacity-50">
@@ -25,7 +25,8 @@ const Features = () => {
             desc="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
           />
         </div>
-
+        <BentoGrid />
+        {/* 
         <div className="h-[135vh] grid grid-cols-2 grid-rows-3 gap-7">
           <div className="row-span-1 md:col-span-2 md:row-span-2">
             <BentoCard
@@ -80,7 +81,7 @@ const Features = () => {
               className="size-full object-cover object-center"
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

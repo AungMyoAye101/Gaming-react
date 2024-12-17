@@ -8,7 +8,7 @@ interface BentoCardProps {
 
 const BentoCard: FC<BentoCardProps> = ({ src, title, desc }) => {
   return (
-    <div className="relative size-full">
+    <div className="relative size-full border border-white/20 rounded-lg overflow-hidden">
       <video
         src={src}
         muted
