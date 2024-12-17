@@ -3,8 +3,8 @@ import BentoGrid from "./BentoGrid";
 
 const Features = () => {
   return (
-    <section className="pb-32 bg-black">
-      <div className="px-4 md:px-10 mx-auto container">
+    <section className="pb-32 bg-black px-4 md:px-12">
+      <div>
         <div className="py-32 px-5 font-circular-web text-blue-50">
           <p className="text-lg "> Into the Metagame Layer</p>
           <p className="text-lg max-w-md opacity-50">
@@ -14,7 +14,7 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="w-full h-96 overflow-hidden rounded-lg md:h-[65vh] relative border border-gray-100 mb-7">
+        <div className="w-full h-96 overflow-hidden rounded-lg md:h-[65vh] relative border border-white/20 mb-7">
           <BentoCard
             src="/videos/feature-1.mp4"
             title={
