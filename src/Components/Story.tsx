@@ -1,8 +1,9 @@
 import AnimateText from "./AnimateText";
+import RoundedConer from "./RoundedConer";
 
 const Story = () => {
   return (
-    <section className="min-h-dvh w-screen  py-10">
+    <section className="min-h-dvh w-screen bg-black  py-10">
       <div className="flex flex-col gap-4 items-center">
         <p className="text-xs md:text-sm font-general text-blue-50 uppercase ">
           {" "}
@@ -12,7 +13,7 @@ const Story = () => {
         <div className="size-full relative">
           <AnimateText
             title="the st<b>o</b>ry of <br /> a hidden real<b>m</b>"
-            containerClass="bg-blend-difference relative z-10"
+            containerClass="text-blue-50 pointer-events-none mix-blend-difference relative z-10"
           />
 
           <div className="story-img-container ">
@@ -23,6 +24,7 @@ const Story = () => {
                   alt="entrace"
                   className="object-contain"
                 />
+                <RoundedConer />
               </div>
             </div>
           </div>
