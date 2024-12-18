@@ -66,7 +66,8 @@ const NavBar = () => {
             <Button
               title="Products"
               leftIcon={<TiLocationArrow />}
-              containerClass="bg-blue-50 md:flex hidden"
+              containerClass=" md:flex hidden"
+              color="blue-50"
             />
           </div>
           <div className="flex h-full items-center">

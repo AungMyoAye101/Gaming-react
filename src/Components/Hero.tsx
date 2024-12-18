@@ -137,16 +137,23 @@ const Hero = () => {
         {/* Text section */}
         <div className="absolute top-0 left-0 z-40">
           <div className="mt-24 px-4 sm:px-10 ">
-            <h1 className="special-font heading text-blue-100">
-              Redefi<b>n</b>e
+            <h1 className="special-font font-zentry uppercase   font-black text-blue-100 flex flex-col ">
+              <span className="flex items-center gap-2 text-5xl sm:text-7xl md:text-8xl ">
+                le<b>a</b>g<b>u</b>e
+                <span className="text-3xl sm:text-4xl md:text-5xl">
+                  <b>o</b>f
+                </span>
+              </span>
+
+              <span className="text-4xl sm:text-6xl md:text-8xl">
+                le<b>n</b>gen<b>d</b>s
+              </span>
             </h1>
-            <p className=" font-robert-regular text-blue-100 mb-5">
-              Enter the Metagame Layer <br /> Unleash the Play Economy
-            </p>
+
             <Button
-              title="Watch Trailer"
-              containerClass="bg-yellow-300"
+              title="Play for free"
               leftIcon={<TiLocationArrow />}
+              color="gold-100"
             />
           </div>
         </div>
