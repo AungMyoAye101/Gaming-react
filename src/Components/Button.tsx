@@ -16,7 +16,9 @@ const Button: FC<ButtonProps> = ({
   containerClass,
 }) => {
   return (
-    <div className="p-0.5 border border-${color} rounded-md bg-transparent w-fit hover:bg-gray-900 ">
+    <div
+      className={`p-0.5 border border-${color} rounded-md bg-transparent w-fit hover:bg-gray-900 `}
+    >
       <button
         className={`px-6 py-3 w-fit  rounded-md shadow flex items-center gap-1 text-black bg-${color} ${containerClass}`}
       >

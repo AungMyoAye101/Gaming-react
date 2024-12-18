@@ -97,9 +97,9 @@ const Hero = () => {
         <div>
           {/* mini video player */}
 
-          <div className="mask-clip-path size-56 md:size-64  absolute-center z-40 rounded-lg overflow-hidden cursor-pointer">
+          <div className="mask-clip-path size-48 md:size-64  absolute-center z-40 rounded-lg overflow-hidden cursor-pointer">
             <div
-              className=" rounded-lg  origin-center scale-30  transition-all opacity-0 hover:scale-100 hover:opacity-100 duration-500 ease-out cursor-pointer"
+              className=" rounded-lg  origin-center  transition-all opacity-0 hover:scale-100 hover:opacity-100 duration-500 ease-out cursor-pointer"
               onClick={handleclick}
             >
               <video
@@ -109,7 +109,7 @@ const Hero = () => {
                 muted
                 src={getVideosSource((currIndex % totalVideos) + 1)}
                 onLoadedData={handleVideoLoad}
-                className=" size-56 md:size-64 rounded-lg origin-center object-cover object-center scale-100 md:scale-150 "
+                className=" size-48 md:size-64 rounded-lg origin-center object-cover object-center  "
               />
             </div>
           </div>
@@ -122,7 +122,7 @@ const Hero = () => {
             autoPlay
             src={getVideosSource(currIndex)}
             onLoadedData={handleVideoLoad}
-            className="absolute-center invisible  size-56 md:size-64 z-10 object-cover object-center  "
+            className="absolute-center invisible  size-48 md:size-64 z-10 object-cover object-center  "
           />
           <video
             loop
@@ -136,17 +136,17 @@ const Hero = () => {
 
         {/* Text section */}
         <div className="absolute top-0 left-0 z-40">
-          <div className="mt-24 px-4 sm:px-10 ">
-            <h1 className="special-font font-zentry uppercase   font-black text-blue-100 flex flex-col ">
-              <span className="flex items-center gap-2 text-5xl sm:text-7xl md:text-8xl ">
-                le<b>a</b>g<b>u</b>e
-                <span className="text-3xl sm:text-4xl md:text-5xl">
+          <div className="mt-20 px-4 sm:px-10 ">
+            <h1 className="special-font font-zentry uppercase   font-black text-blue-100 flex flex-col mb-4 ">
+              <span className="flex items-center gap-1 text-6xl sm:text-7xl md:text-8xl ">
+                league
+                <span className="text-2xl sm:text-4xl md:text-5xl">
                   <b>o</b>f
                 </span>
               </span>
 
-              <span className="text-4xl sm:text-6xl md:text-8xl">
-                le<b>n</b>gen<b>d</b>s
+              <span className="text-6xl sm:text-7xl md:text-8xl">
+                lege<b>n</b>ds
               </span>
             </h1>
 
