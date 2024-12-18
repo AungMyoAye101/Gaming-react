@@ -15,7 +15,7 @@ const Hero = () => {
   const [loading, setLoading] = useState(false);
 
   const nextVideoRef = useRef<HTMLVideoElement>(null);
-  const totalVideos = 4;
+  const totalVideos = 3;
 
   const handleclick = () => {
     sethasclicked(true);
@@ -31,7 +31,7 @@ const Hero = () => {
     }
   }, [loadedVideo]);
 
-  const getVideosSource = (index: number) => `/videos/hero-${index}.mp4`;
+  const getVideosSource = (index: number) => `/videos/lol-${index}.mp4`;
 
   // use gsap animation
 
