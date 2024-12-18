@@ -3,7 +3,7 @@ import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
-const navLink = ["home", "about", "contact", "nexus"];
+const navLink = ["home", "about", "story", "contact"];
 
 const NavBar = () => {
   const [isPlay, setIsPlay] = useState(false);

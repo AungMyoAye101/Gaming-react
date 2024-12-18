@@ -90,7 +90,7 @@ const Hero = () => {
   });
 
   return (
-    <section className="hero-container">
+    <section className="hero-container" id="home">
       {loading && <Loading />}
 
       <main id="video-frame" className="hero-container">

@@ -4,8 +4,8 @@ import ImageClipBox from "./ImageClipBox";
 
 const Contact = () => {
   return (
-    <section className="my-10 min-h-screen w-screen px-10 ">
-      <div className="relative rounded-lg bg-black text-blue-50 py-20 overflow-hidden ">
+    <section id="contact" className="my-10 min-h-screen w-screen px-10 ">
+      <div className="relative rounded-lg bg-black text-blue-50 py-20 md:overflow-hidden ">
         <div className="absolute h-full hidden sm:block w-72 lg:w-96 -left-20 lg:left-20 overflow-hidden">
           <ImageClipBox
             source="/img/contact-1.webp"
@@ -24,7 +24,7 @@ const Contact = () => {
           />
           <ImageClipBox
             source="/img/swordman.webp"
-            imgStyle="sword-man-clip-path md:scale-125"
+            imgStyle="sword-man-clip-path md:scale-125 rounded-lg"
           />
         </div>
 
