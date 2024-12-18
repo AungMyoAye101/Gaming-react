@@ -44,7 +44,7 @@ const About = () => {
       <div className="h-dvh w-screen" id="clip">
         <div className="mask-clip-path about-image bg-blue-400">
           <img
-            src="/img/about.webp"
+            src="/img/Ahri.jpg"
             alt="background image"
             className="absolute left-0 right-0 size-full  object-cover "
           />
