@@ -97,7 +97,7 @@ const Hero = () => {
         <div>
           {/* mini video player */}
 
-          <div className="mask-clip-path size-48 md:size-64  absolute-center z-40 rounded-lg overflow-hidden cursor-pointer">
+          <div className="mask-clip-path size-48 md:size-64  absolute-center mt-20 md:mt-0 ml-6 md:ml-0 z-40 rounded-lg overflow-hidden cursor-pointer">
             <div
               className=" rounded-lg  origin-center  transition-all opacity-0 hover:scale-100 hover:opacity-100 duration-500 ease-out cursor-pointer"
               onClick={handleclick}
@@ -153,7 +153,7 @@ const Hero = () => {
             <Button
               title="Play for free"
               leftIcon={<TiLocationArrow />}
-              color="gold-100"
+              containerClass="bg-gold-100"
             />
           </div>
         </div>
