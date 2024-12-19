@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
-import { TiLocationArrow } from "react-icons/ti";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
+import { FiArrowDown } from "react-icons/fi";
 const navLink = ["home", "about", "story", "contact"];
 
 const NavBar = () => {
@@ -64,8 +64,8 @@ const NavBar = () => {
           <div className="flex items-center gap-2 ">
             <img src="/img/logo.png" alt="logo" className="w-10" />
             <Button
-              title="Products"
-              leftIcon={<TiLocationArrow />}
+              title="download"
+              leftIcon={<FiArrowDown />}
               containerClass=" md:flex hidden bg-blue-50"
             />
           </div>

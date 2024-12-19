@@ -10,7 +10,7 @@ const About = () => {
       scrollTrigger: {
         trigger: "#clip",
         start: "center center",
-        end: "+=800 center",
+        end: "bottom center",
         scrub: 0.5,
         pin: true,
         pinSpacing: true,
@@ -25,7 +25,9 @@ const About = () => {
   return (
     <section className="min-h-screen w-screen relative " id="about">
       <div className="flex flex-col gap-4 items-center    py-6 relative">
-        <h2 className="text-sm uppercase font-general">Welcome to Zentry</h2>
+        <h2 className="text-sm uppercase font-general">
+          Welcome to League of legends
+        </h2>
 
         <AnimateText
           title=" Disc<b>o</b>ver the world's <br /> largest shared <b>a</b>dventure "
@@ -44,7 +46,7 @@ const About = () => {
       <div className="h-dvh w-screen" id="clip">
         <div className="mask-clip-path about-image bg-blue-400">
           <img
-            src="/img/Ahri.jpg"
+            src="/img/backdrop.webp"
             alt="background image"
             className="absolute left-0 right-0 size-full  object-cover "
           />
