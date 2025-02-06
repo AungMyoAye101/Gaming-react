@@ -1,4 +1,5 @@
 import About from "./Components/About";
+import Champions from "./Components/Champions";
 import Contact from "./Components/Contact";
 import Features from "./Components/Features";
 import Footer from "./Components/Footer";
@@ -13,6 +14,7 @@ function App() {
       <Hero />
       <About />
       <Features />
+      <Champions />
       <Story />
       <Contact />
       <Footer />

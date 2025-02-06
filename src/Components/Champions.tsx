@@ -1,0 +1,117 @@
+import { useState } from "react";
+
+const Champions = () => {
+  const [cuurentIndex, setCuurentIndex] = useState(0);
+  const championsData = [
+    {
+      id: 1,
+      image: "img/Ahri.jpg",
+      name: "Ahri",
+      description: "Roug Assassian",
+      role: "assassian",
+    },
+    {
+      id: 2,
+      image: "img/backdrop.webp",
+      name: "Backdrop",
+      description: "Roug Assassian",
+      role: "assassian",
+    },
+    {
+      id: 3,
+      image: "img/entrance.webp",
+      name: "Entrance",
+      description: "Roug Assassian",
+      role: "assassian",
+    },
+  ];
+  console.log(`curr ${cuurentIndex} total list ${championsData.length} `);
+
+  const buttonType = {
+    previous: "previous",
+    next: "next",
+    index: "index",
+  };
+
+  const currentIndexHandle = (i: number, type: string) => {
+    console.log(
+      `curr ${cuurentIndex} total list ${championsData.length} and ${i}`
+    );
+    if (type === buttonType.index) {
+      setCuurentIndex(i);
+    } else if (type === buttonType.previous) {
+      if (i === 0) {
+        setCuurentIndex(championsData.length - 1);
+      } else {
+        setCuurentIndex(i - 1);
+      }
+    } else if ((type = buttonType.next)) {
+      if (i === championsData.length - 1) {
+        setCuurentIndex(0);
+      } else {
+        setCuurentIndex(i + 1);
+      }
+    } else {
+      setCuurentIndex(i);
+    }
+  };
+
+  return (
+    <section className="relative min-h-screen w-screen flex flex-col-reverse md:flex-row gap-8 items-center justify-between">
+      {/* background image */}
+
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={championsData[cuurentIndex].image}
+          alt={championsData[cuurentIndex].name}
+          className="w-full h-full object-cover opacity-70"
+        />
+      </div>
+
+      <div className="flex flex-col items-center gap-4 w-[40%]">
+        <div>
+          <h2>Meet some champions</h2>
+        </div>
+        <div className="flex items-center justify-center gap-4">
+          {championsData.map((champ, i) => (
+            <button
+              key={champ.id}
+              onClick={() => currentIndexHandle(i, buttonType.index)}
+            >
+              <img
+                src={champ.image}
+                alt={champ.name}
+                className="w-16 h-16 rounded-full object-cover"
+              />
+            </button>
+          ))}
+        </div>
+        <div className="flex justify-center items-center gap-4">
+          <button
+            onClick={() =>
+              currentIndexHandle(cuurentIndex, buttonType.previous)
+            }
+            className="bg-violet-50 rounded-lg px-4 py-1.5 font-robert-regular text-sm"
+          >
+            Previous
+          </button>
+          <button
+            onClick={() => currentIndexHandle(cuurentIndex, buttonType.next)}
+            className="bg-violet-50 rounded-lg px-4 py-1.5 font-robert-regular text-sm"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      <div className="w-[50%] flex justify-center items-center">
+        <img
+          src={championsData[cuurentIndex].image}
+          alt={championsData[cuurentIndex].name}
+          className="w-80 h-80 rounded-full"
+        />
+      </div>
+    </section>
+  );
+};
+
+export default Champions;
