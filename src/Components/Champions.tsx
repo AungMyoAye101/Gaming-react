@@ -57,7 +57,7 @@ const Champions = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-screen flex flex-col-reverse md:flex-row gap-8 items-center justify-center gap-6 px-4 py-10 md:px-10">
+    <section className="relative min-h-screen w-screen flex flex-col-reverse md:flex-row  items-center justify-center gap-8 px-4 py-10 ">
       {/* background image */}
 
       <div className="absolute inset-0 -z-10">
@@ -68,12 +68,12 @@ const Champions = () => {
         />
       </div>
 
-      <div className="flex flex-col  gap-4 ">
+      <div className=" w-full md:w-[50%]  flex flex-col items-center gap-4 ">
         <div className=" flex flex-col gap-2 text-3xl font-semibold  text-center uppercase text-violet-50">
           <span>Meet some OF</span>
           <span className="text-7xl font-zentry mt-2">the Champions</span>
         </div>
-        <button className="font-general  bg-gold-100 rounded-md px-4 py-3">
+        <button className="font-general w-fit bg-gold-100 rounded-md px-4 py-3">
           Discover more champions
         </button>
         <div className="flex items-center justify-center gap-6 py-4">
@@ -101,7 +101,7 @@ const Champions = () => {
             }
             className="bg-violet-50 rounded-lg px-4 py-1.5 font-robert-regular text-sm"
           >
-            Previous
+            Pre
           </button>
           <button
             onClick={() => currentIndexHandle(cuurentIndex, buttonType.next)}
@@ -111,11 +111,11 @@ const Champions = () => {
           </button>
         </div>
       </div>
-      <div className="w-[50%] flex justify-center items-center">
+      <div className="w-full md:w-[50%] flex justify-center items-center">
         <img
           src={championsData[cuurentIndex].image}
           alt={championsData[cuurentIndex].name}
-          className="w-80 h-80 rounded-full"
+          className="w-[500px] h-[500px] rounded-full"
         />
       </div>
     </section>
