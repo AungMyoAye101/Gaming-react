@@ -57,7 +57,7 @@ const Champions = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-screen flex flex-col-reverse md:flex-row gap-8 items-center justify-between">
+    <section className="relative min-h-screen w-screen flex flex-col-reverse md:flex-row gap-8 items-center justify-center gap-6 px-4 py-10 md:px-10">
       {/* background image */}
 
       <div className="absolute inset-0 -z-10">
@@ -68,21 +68,29 @@ const Champions = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center gap-4 w-[40%]">
-        <div>
-          <h2>Meet some champions</h2>
+      <div className="flex flex-col  gap-4 ">
+        <div className=" flex flex-col gap-2 text-3xl font-semibold  text-center uppercase text-violet-50">
+          <span>Meet some OF</span>
+          <span className="text-7xl font-zentry mt-2">the Champions</span>
         </div>
-        <div className="flex items-center justify-center gap-4">
+        <button className="font-general  bg-gold-100 rounded-md px-4 py-3">
+          Discover more champions
+        </button>
+        <div className="flex items-center justify-center gap-6 py-4">
           {championsData.map((champ, i) => (
             <button
               key={champ.id}
               onClick={() => currentIndexHandle(i, buttonType.index)}
+              className="flex flex-col items-center gap-2"
             >
               <img
                 src={champ.image}
                 alt={champ.name}
                 className="w-16 h-16 rounded-full object-cover"
               />
+              <div className="font-general text-violet-50 text-lg ">
+                {champ.name}
+              </div>
             </button>
           ))}
         </div>
